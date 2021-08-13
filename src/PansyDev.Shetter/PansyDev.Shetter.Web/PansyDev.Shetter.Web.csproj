@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\PansyDev.Common\src\PansyDev.Common.Web.GraphQL\PansyDev.Common.Web.GraphQL.csproj" />
+      <ProjectReference Include="..\..\PansyDev.Common\src\PansyDev.Common.Web\PansyDev.Common.Web.csproj" />
+      <ProjectReference Include="..\PansyDev.Shetter.Infrastructure\PansyDev.Shetter.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>

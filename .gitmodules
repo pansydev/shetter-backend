@@ -1,0 +1,3 @@
+[submodule "src/PansyDev.Common"]
+	path = src/PansyDev.Common
+	url = https://github.com/pansydev/backend-libraries
