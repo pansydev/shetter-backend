@@ -7,9 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\PansyDev.Common\src\PansyDev.Common.Infrastructure.Authentication\PansyDev.Common.Infrastructure.Authentication.csproj" />
-      <ProjectReference Include="..\..\PansyDev.Common\src\PansyDev.Common.Infrastructure.EntityFramework\PansyDev.Common.Infrastructure.EntityFramework.csproj" />
-      <ProjectReference Include="..\..\PansyDev.Common\src\PansyDev.Common.Infrastructure\PansyDev.Common.Infrastructure.csproj" />
+      <ProjectReference Include="$(PansyDevCommonPath)\PansyDev.Common.Infrastructure.Authentication\PansyDev.Common.Infrastructure.Authentication.csproj" />
+      <ProjectReference Include="$(PansyDevCommonPath)\PansyDev.Common.Infrastructure.EntityFramework\PansyDev.Common.Infrastructure.EntityFramework.csproj" />
+      <ProjectReference Include="$(PansyDevCommonPath)\PansyDev.Common.Infrastructure\PansyDev.Common.Infrastructure.csproj" />
       <ProjectReference Include="..\PansyDev.Shetter.Application\PansyDev.Shetter.Application.csproj" />
     </ItemGroup>
 

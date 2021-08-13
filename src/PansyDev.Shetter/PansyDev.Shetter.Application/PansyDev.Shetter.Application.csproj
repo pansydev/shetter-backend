@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\PansyDev.Common\src\PansyDev.Common.Application\PansyDev.Common.Application.csproj" />
+      <ProjectReference Include="$(PansyDevCommonPath)\PansyDev.Common.Application\PansyDev.Common.Application.csproj" />
       <ProjectReference Include="..\PansyDev.Shetter.Domain\PansyDev.Shetter.Domain.csproj" />
     </ItemGroup>
 

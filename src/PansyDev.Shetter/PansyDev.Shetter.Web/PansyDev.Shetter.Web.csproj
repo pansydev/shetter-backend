@@ -6,8 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\PansyDev.Common\src\PansyDev.Common.Web.GraphQL\PansyDev.Common.Web.GraphQL.csproj" />
-      <ProjectReference Include="..\..\PansyDev.Common\src\PansyDev.Common.Web\PansyDev.Common.Web.csproj" />
+      <ProjectReference Include="$(PansyDevCommonPath)\PansyDev.Common.Web.GraphQL\PansyDev.Common.Web.GraphQL.csproj" />
+      <ProjectReference Include="$(PansyDevCommonPath)\PansyDev.Common.Web\PansyDev.Common.Web.csproj" />
       <ProjectReference Include="..\PansyDev.Shetter.Infrastructure\PansyDev.Shetter.Infrastructure.csproj" />
     </ItemGroup>
 
