@@ -45,9 +45,9 @@ namespace PansyDev.Shetter.Web.Types
         private static void AddEntities(this IRequestExecutorBuilder builder)
         {
             builder.AddType<PostType>();
+            builder.AddType<PostAuthorType>();
 
             builder.AddObjectType<PostVersionReadModel>(x => x.Name(nameof(PostVersion)));
-            builder.AddObjectType<PostAuthorReadModel>(x => x.Name(nameof(PostAuthor)));
         }
 
         private static void AddWriteModels(this IRequestExecutorBuilder builder)

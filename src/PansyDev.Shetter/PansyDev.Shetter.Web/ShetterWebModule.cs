@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using PansyDev.Common.Web;
+using PansyDev.Common.Web.GraphQL;
 using PansyDev.Shetter.Infrastructure;
 using PansyDev.Shetter.Web.Types;
 using Volo.Abp;
@@ -11,6 +12,7 @@ using Volo.Abp.Security.Claims;
 namespace PansyDev.Shetter.Web
 {
     [DependsOn(typeof(CommonWebModule))]
+    [DependsOn(typeof(CommonWebGraphQLModule))]
     [DependsOn(typeof(ShetterInfrastructureModule))]
     public class ShetterWebModule : AbpModule
     {
@@ -35,7 +37,6 @@ namespace PansyDev.Shetter.Web
             var app = context.GetApplicationBuilder();
 
             app.UseWebSockets();
-            app.UseEndpoints(builder => builder.MapGraphQL());
         }
     }
 }

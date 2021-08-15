@@ -69,6 +69,12 @@ namespace PansyDev.Shetter.Infrastructure.Data
                     .IsRequired(false)
                     .OnDelete(DeleteBehavior.Cascade);
             });
+
+            modelBuilder.Entity<PostAuthor>(builder =>
+            {
+                builder.HasMany(x => x.Posts)
+                    .WithOne(x => x.Author);
+            });
         }
     }
 }
