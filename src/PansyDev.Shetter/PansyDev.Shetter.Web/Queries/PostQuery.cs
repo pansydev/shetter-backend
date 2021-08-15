@@ -34,5 +34,13 @@ namespace PansyDev.Shetter.Web.Queries
         {
             return _mapper.ProjectTo<PostReadModel>(context.Posts.Where(x => x.Id == id));
         }
+
+        [UseDbContext(typeof(ShetterDbContext))]
+        [UseProjection]
+        [UseFirstOrDefault]
+        public IQueryable<PostAuthorReadModel> GetAuthor([ScopedService] ShetterDbContext context, Guid id)
+        {
+            return _mapper.ProjectTo<PostAuthorReadModel>(context.PostAuthors.Where(x => x.Id == id));
+        }
     }
 }
