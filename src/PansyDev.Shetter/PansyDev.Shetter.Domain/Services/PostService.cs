@@ -57,7 +57,7 @@ namespace PansyDev.Shetter.Domain.Services
             if (author is null || post.AuthorId != author.Id)
                 throw new EntityAccessViolationException();
 
-            if (post.CurrentVersion.Text == text &&
+            if (post.CurrentVersion.OriginalText == text &&
                 post.CurrentVersion.Images.SequenceEqual(images ?? ArraySegment<PostImage>.Empty))
                 throw new ContentNotChangedException();
 

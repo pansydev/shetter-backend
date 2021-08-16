@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using PansyDev.Shetter.Infrastructure.Data;
@@ -9,9 +10,10 @@ using PansyDev.Shetter.Infrastructure.Data;
 namespace PansyDev.Shetter.Infrastructure.Migrations
 {
     [DbContext(typeof(ShetterDbContext))]
-    partial class ShetterDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210816091353_RenamePostVersionTextToOriginalText")]
+    partial class RenamePostVersionTextToOriginalText
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

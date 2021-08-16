@@ -10,7 +10,7 @@ namespace PansyDev.Shetter.Domain.Aggregates.PostAggregate
     {
         public Guid? PostId { get; private set; }
 
-        public string? Text { get; private set; } = null!;
+        public string? OriginalText { get; private set; } = null!;
 
         public IReadOnlyList<TextToken> TextTokens { get; private set; } = null!;
         public IReadOnlyList<PostImage> Images { get; private set; } = null!;
@@ -21,10 +21,10 @@ namespace PansyDev.Shetter.Domain.Aggregates.PostAggregate
 
         protected PostVersion() { }
 
-        public PostVersion(string? text, IReadOnlyList<TextToken> textTokens, IReadOnlyList<PostImage> images,
+        public PostVersion(string? originalText, IReadOnlyList<TextToken> textTokens, IReadOnlyList<PostImage> images,
             DateTime creationTime)
         {
-            Text = text;
+            OriginalText = originalText;
             TextTokens = textTokens;
             Images = images;
             CreationTime = creationTime;
