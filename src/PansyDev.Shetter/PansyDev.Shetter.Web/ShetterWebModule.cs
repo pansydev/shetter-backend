@@ -32,7 +32,7 @@ namespace PansyDev.Shetter.Web
             });
         }
 
-        public override void OnApplicationInitialization(ApplicationInitializationContext context)
+        public override void OnPreApplicationInitialization(ApplicationInitializationContext context)
         {
             var app = context.GetApplicationBuilder();
 
