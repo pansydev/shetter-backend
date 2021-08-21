@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace PansyDev.Shetter.Domain.Aggregates.PostAggregate.TextTokens
 {
@@ -8,9 +9,9 @@ namespace PansyDev.Shetter.Domain.Aggregates.PostAggregate.TextTokens
 
         internal PlainTextToken(string text, IReadOnlyList<TextTokenModifier>? modifiers = null) : base(text)
         {
-            Modifiers = modifiers;
+            Modifiers = modifiers ?? ArraySegment<TextTokenModifier>.Empty;
         }
 
-        public IReadOnlyList<TextTokenModifier>? Modifiers { get; private set; }
+        public IReadOnlyList<TextTokenModifier> Modifiers { get; private set; } = ArraySegment<TextTokenModifier>.Empty;
     }
 }

@@ -63,11 +63,7 @@ namespace PansyDev.Shetter.Web.Types
         {
             builder.AddInterfaceType<TextToken>();
 
-            builder.AddObjectType<PlainTextToken>(x => x
-                .Field(f => f.Modifiers)
-                .Type<NonNullType<ListType<NonNullType<EnumType<TextTokenModifier>>>>>()
-                .Resolve(ctx => ctx.Parent<PlainTextToken>().Modifiers ?? ArraySegment<TextTokenModifier>.Empty));
-
+            builder.AddObjectType<PlainTextToken>();
             builder.AddObjectType<LinkTextToken>();
             builder.AddObjectType<MentionTextToken>();
         }
