@@ -9,9 +9,9 @@ namespace PansyDev.Shetter.Domain.Aggregates.PostAggregate.TextTokens
 
         internal PlainTextToken(string text, IReadOnlyList<TextTokenModifier>? modifiers = null) : base(text)
         {
-            Modifiers = modifiers ?? ArraySegment<TextTokenModifier>.Empty;
+            Modifiers = modifiers ?? Array.Empty<TextTokenModifier>();
         }
 
-        public IReadOnlyList<TextTokenModifier> Modifiers { get; private set; } = ArraySegment<TextTokenModifier>.Empty;
+        public IReadOnlyList<TextTokenModifier> Modifiers { get; private set; } = Array.Empty<TextTokenModifier>();
     }
 }
