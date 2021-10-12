@@ -7,6 +7,7 @@ using PansyDev.Shetter.Application.Models.ReadModels;
 using PansyDev.Shetter.Domain.Aggregates.PostAggregate;
 using PansyDev.Shetter.Domain.Aggregates.PostAggregate.TextTokens;
 using PansyDev.Shetter.Domain.Aggregates.PostAuthorAggregate;
+using PansyDev.Shetter.Domain.Aggregates.PostLikeAggregate;
 using PansyDev.Shetter.Web.Mutations;
 using PansyDev.Shetter.Web.Queries;
 using PansyDev.Shetter.Web.Subscriptions;
@@ -29,6 +30,7 @@ namespace PansyDev.Shetter.Web.Types
 
             builder.AddMutationType();
             builder.AddTypeExtension<PostMutation>();
+            builder.AddTypeExtension<PostLikeMutation>();
 
             builder.AddSubscriptionType();
             builder.AddTypeExtension<PostSubscription>();
@@ -48,6 +50,7 @@ namespace PansyDev.Shetter.Web.Types
             builder.AddType<PostAuthorType>();
 
             builder.AddObjectType<PostVersionReadModel>(x => x.Name(nameof(PostVersion)));
+            builder.AddObjectType<PostLikeReadModel>(x => x.Name(nameof(PostLike)));
         }
 
         private static void AddWriteModels(this IRequestExecutorBuilder builder)

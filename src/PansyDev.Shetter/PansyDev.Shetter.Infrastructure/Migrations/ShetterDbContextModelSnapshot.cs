@@ -46,6 +46,24 @@ namespace PansyDev.Shetter.Infrastructure.Migrations
                     b.ToTable("Posts");
                 });
 
+            modelBuilder.Entity("PansyDev.Shetter.Domain.Aggregates.PostAggregate.PostLike", b =>
+                {
+                    b.Property<Guid>("PostId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("AuthorId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("PostId", "AuthorId");
+
+                    b.HasIndex("AuthorId");
+
+                    b.ToTable("PostLike");
+                });
+
             modelBuilder.Entity("PansyDev.Shetter.Domain.Aggregates.PostAggregate.PostVersion", b =>
                 {
                     b.Property<Guid>("Id")
@@ -113,6 +131,23 @@ namespace PansyDev.Shetter.Infrastructure.Migrations
                     b.Navigation("CurrentVersion");
                 });
 
+            modelBuilder.Entity("PansyDev.Shetter.Domain.Aggregates.PostAggregate.PostLike", b =>
+                {
+                    b.HasOne("PansyDev.Shetter.Domain.Aggregates.PostAuthorAggregate.PostAuthor", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PansyDev.Shetter.Domain.Aggregates.PostAggregate.Post", null)
+                        .WithMany("Likes")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+                });
+
             modelBuilder.Entity("PansyDev.Shetter.Domain.Aggregates.PostAggregate.PostVersion", b =>
                 {
                     b.HasOne("PansyDev.Shetter.Domain.Aggregates.PostAggregate.Post", null)
@@ -123,6 +158,8 @@ namespace PansyDev.Shetter.Infrastructure.Migrations
 
             modelBuilder.Entity("PansyDev.Shetter.Domain.Aggregates.PostAggregate.Post", b =>
                 {
+                    b.Navigation("Likes");
+
                     b.Navigation("PreviousVersions");
                 });
 

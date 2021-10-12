@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using PansyDev.Shetter.Domain.Aggregates.PostAggregate;
 using PansyDev.Shetter.Domain.Aggregates.PostAggregate.TextTokens;
 using PansyDev.Shetter.Domain.Aggregates.PostAuthorAggregate;
+using PansyDev.Shetter.Domain.Aggregates.PostLikeAggregate;
 using PansyDev.Shetter.Infrastructure.Data.Serialization;
 using PansyDev.Shetter.Infrastructure.Services;
 using Volo.Abp.EntityFrameworkCore;
@@ -68,12 +69,27 @@ namespace PansyDev.Shetter.Infrastructure.Data
                     .WithOne()
                     .IsRequired(false)
                     .OnDelete(DeleteBehavior.Cascade);
+
+                builder.HasMany(x => x.Likes)
+                    .WithOne()
+                    .HasForeignKey(x => x.PostId)
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<PostAuthor>(builder =>
             {
                 builder.HasMany(x => x.Posts)
                     .WithOne(x => x.Author);
+            });
+
+            modelBuilder.Entity<PostLike>(builder =>
+            {
+                builder.HasKey(x => new {x.PostId, x.AuthorId});
+
+                builder.HasOne(x => x.Author)
+                    .WithMany()
+                    .HasForeignKey(x => x.AuthorId)
+                    .OnDelete(DeleteBehavior.Cascade);
             });
         }
     }

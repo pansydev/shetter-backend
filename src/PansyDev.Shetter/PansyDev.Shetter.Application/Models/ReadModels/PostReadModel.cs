@@ -13,5 +13,7 @@ namespace PansyDev.Shetter.Application.Models.ReadModels
         public PostAuthorReadModel Author { get; set; } = null!;
         public PostVersionReadModel CurrentVersion { get; set; } = null!;
         public List<PostVersionReadModel> PreviousVersions { get; set; } = null!;
+        public List<PostLikeReadModel> Likes { get; set; } = null!;
+        public bool IsLiked { get; set; }
     }
 }

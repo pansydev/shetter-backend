@@ -14,6 +14,10 @@ namespace PansyDev.Shetter.Web.Types
             descriptor.Field(x => x.PreviousVersions)
                 .UseProjection()
                 .UsePaging(options: new PagingOptions { IncludeTotalCount = true });
+
+            descriptor.Field(x => x.Likes)
+                .UseProjection()
+                .UsePaging(options: new PagingOptions { IncludeTotalCount = true });
         }
     }
 }

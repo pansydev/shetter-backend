@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using PansyDev.Shetter.Domain.Aggregates.PostAuthorAggregate;
+using PansyDev.Shetter.Domain.Aggregates.PostLikeAggregate;
 using Volo.Abp.Auditing;
 using Volo.Abp.Domain.Entities;
 
@@ -22,6 +23,7 @@ namespace PansyDev.Shetter.Domain.Aggregates.PostAggregate
         protected Post() { }
 
         internal PostAuthor Author { get; set; } = null!;
+        internal IReadOnlyList<PostLike> Likes { get; set; } = null!;
 
         internal Post(Guid id, Guid authorId, PostVersion version) : base(id)
         {
